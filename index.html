@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>jQuery SimpleTab</title>
+	<script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="scripts/simpletab.js"></script>
+	<script type="text/javascript">
+    $(document).ready(function () {
+        $("#tabs").simpletabs();
+    });
+</script>
+</head>
+<body>
+    <ul id="tabs">
+        <li><a href="#tabs-slides">Slides</a></li>
+        <li><a href="#tabs-attendees">Attendees</a></li>
+    </ul>
+    
+    <div id="tabs-container">
+        <div id="tabs-slides">
+            <h2>Slides</h2>
+            <p>slides1</p>
+			<p>slides2</p>
+			<p>slides3</p>
+        </div>
+
+        <div id="tabs-attendees">
+            <h2>Attendees</h2>
+            <p>attenddes1</p>
+			<p>attenddes2</p>
+			<p>attenddes3</p>
+			<p>attenddes4</p>
+			<p>attenddes5</p>
+        </div>
+    </div>
+</body>
+</html>
