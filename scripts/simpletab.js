@@ -18,31 +18,42 @@
             });
 
 
-            var view = function () { };
-            view.collapse = function () {
-                $.each(items, function () {
+            function View(items) { 
+				this.tabs = items;
+			};
+			
+            View.prototype.collapse = function () {
+                $.each(this.tabs, function () {
                     this.hide();
                 });
             };
 
-            view.attachHandlers = function () {
-                var self = this;
-                $.each(items, function (i) {
+            View.prototype.attachHandlers = function () {
+                var that = this;
+                $.each(that.tabs, function (i) {
                     $(this.anchor).click(function () {
-                        self.collapse();
+                        that.collapse();
                         (function (index) {
-                            items[index].show();
+                            that.tabs[index].show();
                         })(i);
                     });
                 });
             };
+			
+			View.prototype.expand = function(index)
+			{
+				this.collapse();
+				if( index < (this.tabs.length -1) ){
+					this.tabs[index].show();
+				}
+			};
 
-            view.init = function () {
+            View.prototype.init = function () {
                 this.attachHandlers();
-                this.collapse();
-                items[0].show();
+                this.expand(0);
             };
-
+			
+			var view = new View(items);
             view.init();
         }
     });
